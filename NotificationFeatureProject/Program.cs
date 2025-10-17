@@ -1,17 +1,31 @@
+using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Options;
 using NotificationFeatureProject.Data;
+using NotificationFeatureProject.Mappers;
+using NotificationFeatureProject.Repositories.Implementaions;
+using NotificationFeatureProject.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("ConnectionString_NotificationFeatureProject") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-var connectionString = Environment.GetEnvironmentVariable("ConnectionString_NotificationFeatureProject");
+// var connectionString = Environment.GetEnvironmentVariable("ConnectionString_NotificationFeatureProject");
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IPetRepository, PetRepository>();
+builder.Services.AddAutoMapper(options =>
+{
+    options.AddProfile<AutoMapperProfile>();
+});
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -39,6 +53,12 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "node_modules")),
+    RequestPath = new PathString("/vendor")
+});
 
 app.MapControllerRoute(
     name: "default",

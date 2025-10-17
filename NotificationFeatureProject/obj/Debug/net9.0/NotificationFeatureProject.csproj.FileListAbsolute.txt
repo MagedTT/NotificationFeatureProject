@@ -173,7 +173,6 @@
 /Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/obj/Debug/net9.0/compressed/yfc7ypekbg-mlv21k5csn.gz
 /Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/obj/Debug/net9.0/compressed/5jlezufjt3-b9sayid5wm.gz
 /Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/obj/Debug/net9.0/compressed/g4wodmnk87-61n19gt1b8.gz
-/Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/obj/Debug/net9.0/compressed/grg3ul3stf-xtxxf3hu2r.gz
 /Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/obj/Debug/net9.0/compressed/qe43qititn-bqjiyaj88i.gz
 /Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/obj/Debug/net9.0/compressed/rnhb1u4zuo-c2jlpeoesf.gz
 /Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/obj/Debug/net9.0/compressed/4e8wxzhjda-erw9l3u2r3.gz
@@ -298,3 +297,7 @@
 /Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/bin/Debug/net9.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
 /Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/bin/Debug/net9.0/dotnet-watch.dll
 /Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/obj/Debug/net9.0/NotificationFeatureProject.sourcelink.json
+/Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/bin/Debug/net9.0/AutoMapper.dll
+/Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/obj/Debug/net9.0/compressed/grg3ul3stf-3r8b2a0bt1.gz
+/Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/bin/Debug/net9.0/package-lock.json
+/Users/magedtarak/Desktop/NotificationFeatureCourse/NotificationFeatureProject/bin/Debug/net9.0/package.json

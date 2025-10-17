@@ -1,0 +1,32 @@
+@model Pet
+
+<form asp-action="New" asp-controller="Pets" method="post">
+    @if (ViewBag.IsEditMode == "true")
+    {
+        <input type="hidden" asp-for="Id" />
+    }
+    <input type="hidden" name="IsEditMode" id="IsEditMode" value="@ViewBag.IsEditMode">
+    <div class="form-group">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Age" class="form-label"></label>
+        <input asp-for="Age" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Color" class="form-label"></label>
+        <input asp-for="Color" class="form-control" />
+    </div>
+
+    @if (ViewBag.IsEditMode == "true")
+    {
+        <input type="submit" value="Edit Pet" class="btn btn-info" />
+    }
+    else
+    {
+        <input type="submit" value="Add Pet" class="btn btn-primary">
+    }
+</form>

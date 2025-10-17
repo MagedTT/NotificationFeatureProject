@@ -1,0 +1,66 @@
+@model IEnumerable<Pet>
+
+@{
+    ViewData["Title"] = "";
+}
+
+<h2>All Pets from Database</h2>
+<a class="btn btn-info" asp-action="New">Add New Pet</a>
+
+<table class="table">
+    <thead>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Color</td>
+        <td colspan="2">Acitons</td>
+    </thead>
+
+    <tbody>
+        @foreach (var pet in Model)
+        {
+            <tr>
+                <td>@pet.Id</td>
+                <td>@pet.Name</td>
+                <td>@pet.Age</td>
+                <td>@pet.Color</td>
+                <td>
+                    <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@pet.Id">Edit</a>
+                </td>
+
+                <td id="petRow_@pet.Id">
+                    <a class="btn btn-danger js-delete-btn" data-id="@pet.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.js-delete-btn').on('click', function (event) {
+                event.preventDefault();
+                var id = $(this).data('id');
+
+                if (confirm('sure ?')) {
+                    $.ajax({
+                        url: '/Pets/Delete',
+                        method: 'POST',
+                        data: { id: id },
+                        success: function (response) {
+                            if (response.success) {
+                                $('#petRow_' + id).fadeOut(200, function () {
+                                    $(this).parent().remove();
+                                });
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            alert('nono: ' + error);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}
